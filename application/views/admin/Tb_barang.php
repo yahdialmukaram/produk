@@ -8,6 +8,10 @@
             <h1>Data Barang</h1>
           </div>
         </div>
+            <!-- ini tombol modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Tambah data barang
+                </button>
       </div><!-- /.container-fluid -->
     </section>
     
@@ -35,10 +39,7 @@
           <?php endif; ?>
           
               <div class="card-body">
-                 <!-- ini tombol modal -->
-           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Tambah data barang
-                </button>
+             
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                     <tr>
@@ -94,7 +95,7 @@
 </div>
 <!-- /.content-wrapper -->
 
-<!-- Modal tambah infak-->
+<!-- Modal tambah barang-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
 	<div class="modal-dialog" role="document">
