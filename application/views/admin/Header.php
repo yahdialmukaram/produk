@@ -196,6 +196,12 @@
               </p>
             </a>
       
+            <a href="<?=base_url();?>c_login/logout" class="nav-link ">
+              <i class="nav-icon fas fa-power-off"></i>
+              <p>
+                Logout
+              </p>
+            </a>
           </li>
         
         </ul>

@@ -14,6 +14,13 @@ class Model extends Ci_Model
     $this->db->where('id_barang',$id); 
        $this->db->delete('tb_barang');
    }
+   public function check_account($username,$password)
+    {
+        $this->db->from('tb_user');
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
+        return $this->db->get();
+    }
 }
 
 
