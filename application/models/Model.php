@@ -1,18 +1,18 @@
 <?php
 class Model extends Ci_Model
 {
-   public function tampil_barang()
+   public function tampil_produk()
    {
-       return $this->db->get('tb_barang')->result_array();
+       return $this->db->get('tb_produk')->result_array();
    }
-   public function save_barang($data)
+   public function save_produk($data)
    {
-       $this->db->insert('tb_barang',$data);
+       $this->db->insert('tb_produk',$data);
    }
-   public function delete_barang($id)
+   public function delete_produk($id)
    {
-    $this->db->where('id_barang',$id); 
-       $this->db->delete('tb_barang');
+    $this->db->where('id_produk',$id); 
+       $this->db->delete('tb_produk');
    }
    public function check_account($username,$password)
     {

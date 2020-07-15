@@ -16,11 +16,11 @@ class C_admin extends CI_Controller {
         $this->load->view('admin/dashboard');
         $this->load->view('admin/footer');
     }
-    public function tb_barang()
+    public function tb_produk()
     {
-        $data['barang'] = $this->Model->tampil_barang();
+        $data['produk'] = $this->Model->tampil_produk();
         $this->load->view('admin/header');
-        $this->load->view('admin/tb_barang',$data);
+        $this->load->view('admin/tb_produk',$data);
         $this->load->view('admin/footer');
     }
      // tambah kan fungsi upload  untuk semua
@@ -51,44 +51,44 @@ class C_admin extends CI_Controller {
              } else {
                  $response['status'] = 'error';
                  return $response;
-                //  redirect('c_admin/tb_barang');
+                //  redirect('c_admin/tb_produk');
              }
  
          } else {
              return $response['status'] = 'image not found';
          }
      }
-     public function save_barang()
+     public function save_produk()
      {     
            $kategori = $this->input->post('kategori');
            if ($kategori == '0'){
                $this->session->set_flashdata('danger','kategori belum anda pilih !!');
-               redirect('c_admin/tb_barang');
+               redirect('c_admin/tb_produk');
              }
          $image = $this->upload('image');
          if ($image ['status']=='success') {
          $data = [
-                'nama_barang' => $this->input->post('nama_barang'),
-                'harga_barang' => $this->input->post('harga_barang'),
+                'nama_produk' => $this->input->post('nama_produk'),
+                'harga_produk' => $this->input->post('harga_produk'),
                 'kategori' => $this->input->post('kategori'),
-                'stok_barang' => $this->input->post('stok_barang'),
+                'stok_produk' => $this->input->post('stok_produk'),
                 'image' => $image['data'],
                 'tanggal' => date('d-m-Y'), 
              ];
-        $this->Model->save_barang($data);
+        $this->Model->save_produk($data);
         $this->session->set_flashdata('success','Data barang di simpan');
-        redirect('c_admin/tb_barang');
+        redirect('c_admin/tb_produk');
     }else {
         $this->session->set_flashdata('danger', 'Foto yang anda upload tidak sesuai kriteria sisten !!');
-        redirect('c_admin/tb_barang');
+        redirect('c_admin/tb_produk');
         }
     }
  
-     public function delete_barang($id)
+     public function delete_produk($id)
      {
-         $this->Model->delete_barang($id);
+         $this->Model->delete_produk($id);
          $this->session->set_flashdata('danger','data berhasil di hapus');
-         redirect('c_admin/tb_barang');
+         redirect('c_admin/tb_produk');
      }
  
 }

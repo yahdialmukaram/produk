@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Barang</h1>
+            <h1>Data produk</h1>
           </div>
         </div>
             <!-- ini tombol modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Tambah data barang
+                Tambah data produk
                 </button>
       </div><!-- /.container-fluid -->
     </section>
@@ -44,8 +44,8 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Nama Barang</th>
-                      <th>Harga Barang</th>
+                      <th>Nama produk</th>
+                      <th>Harga produk</th>
                       <th>Kategori</th>
                       <th>Stok</th>
                       <th>Image</th>
@@ -56,20 +56,20 @@
                   <tbody>
                       <?php
                       $no= 1;
-                      foreach ($barang as $key => $value) :?>
+                      foreach ($produk as $key => $value) :?>
                   <tr>
                     <td><?=$no++;?></td>
-                    <td><?=$value['nama_barang'];?></td>
-                    <td><?="Rp. ".number_format( $value['harga_barang']);?></td>
+                    <td><?=$value['nama_produk'];?></td>
+                    <td><?="Rp. ".number_format( $value['harga_produk']);?></td>
                     <td><?=$value['kategori'];?></td>
-                    <td><?=$value['stok_barang'];?></td>
+                    <td><?=$value['stok_produk'];?></td>
                     <td><img style="width: 100px;height: 100px; border-radius:50%" src="<?=base_url();?>assets/images/<?=$value['image'];?>"></td>
                     <td><?=$value['tanggal'];?></td>
                     
                     <td>
-                      <a href="<?php echo base_url(); ?>c_admin/edit_barang/<?=$value['id_barang']; ?>"
+                      <a href="<?php echo base_url(); ?>c_admin/edit_produk/<?=$value['id_produk']; ?>"
 											class="btn btn-info btn-xs"> <i class="fa fa-wrench"></i> </a>
-                      <a href="<?php echo base_url(); ?>c_admin/delete_barang/<?= $value['id_barang']; ?>"
+                      <a href="<?php echo base_url(); ?>c_admin/delete_produk/<?= $value['id_produk']; ?>"
 											class="btn btn-danger btn-xs"> <i class="fa fa-trash"></i> </a>  
                       
                     </td>
@@ -95,33 +95,33 @@
 </div>
 <!-- /.content-wrapper -->
 
-<!-- Modal tambah barang-->
+<!-- Modal tambah produk-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 
-				<h5 class="modal-title" id="exampleModalLabel">Tambah Data Barang</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Tambah Data produk</h5>
 
 			</div>
 			<div class="modal-body">
 
-				<form action="<?=base_url();?>c_admin/save_barang" method="POST">
+				<form action="<?=base_url();?>c_admin/save_produk" method="POST">
 					<div class="form-group">
-						<label for="exampleInputEmail1">Nama barang</label>
-						<input type="text" name="nama_barang" id="nama_barang" class="form-control" placeholder="Input nama barang" required>
+						<label for="exampleInputEmail1">Nama produk</label>
+						<input type="text" name="nama_produk" id="nama_produk" class="form-control" placeholder="Input nama produk" required>
 
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword1">Harga barang</label>
-						<input type="text" name="harga_barang" id="harga_barang" class="form-control"
-							placeholder="Input harga barang" required>
+						<label for="exampleInputPassword1">Harga produk</label>
+						<input type="text" name="harga_produk" id="harga_produk" class="form-control"
+							placeholder="Input harga produk" required>
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputPassword1">Stok</label>
-						<input type="text" name="stok_barang" id="stok_barang" class="form-control" placeholder="Input stok barang"
+						<input type="text" name="stok_produk" id="stok_produk" class="form-control" placeholder="Input stok produk"
 							required>
           </div>
           

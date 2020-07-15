@@ -188,7 +188,7 @@
                 Dashboard
               </p>
             </a>
-            <a href="<?=base_url();?>c_admin/tb_barang" class="nav-link ">
+            <a href="<?=base_url();?>c_admin/tb_produk" class="nav-link ">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Data Barang
