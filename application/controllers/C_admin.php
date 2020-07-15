@@ -7,6 +7,7 @@ class C_admin extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('upload');
+        date_default_timezone_set('Asia/Jakarta');
 
     }
 
@@ -73,7 +74,7 @@ class C_admin extends CI_Controller {
                 'kategori' => $this->input->post('kategori'),
                 'stok_produk' => $this->input->post('stok_produk'),
                 'image' => $image['data'],
-                'tanggal' => date('d-m-Y'), 
+                'tanggal' => date('l,d-m-Y H:i:s'),
              ];
         $this->Model->save_produk($data);
         $this->session->set_flashdata('success','Data barang di simpan');
