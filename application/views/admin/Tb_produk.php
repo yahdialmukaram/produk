@@ -31,9 +31,9 @@
 					</div>
 					<?php endif;?>
 					<!-- aler hapus data -->
-					<?php if ($this->session->flashdata('danger')):?>
+					<?php if ($this->session->flashdata('error')):?>
 					<div id="pesan" class="alert alert-danger" role="alert">
-						<strong><?=$this->session->flashdata('danger');
+						<strong><?=$this->session->flashdata('error');
 						?></strong>
 					</div>
           <?php endif; ?>
@@ -68,7 +68,7 @@
                     
                     <td>
                       <a href="<?php echo base_url(); ?>c_admin/edit_produk/<?=$value['id_produk']; ?>"
-											class="btn btn-info btn-xs"> <i class="fa fa-wrench"></i> </a>
+											class="btn btn-info btn-xs"> <i class="fa fa-edit"></i> </a>
                       <a href="<?php echo base_url(); ?>c_admin/delete_produk/<?= $value['id_produk']; ?>"
 											class="btn btn-danger btn-xs"> <i class="fa fa-trash"></i> </a>  
                       
@@ -107,7 +107,7 @@
 			</div>
 			<div class="modal-body">
 
-				<form action="<?=base_url();?>c_admin/save_produk" method="POST">
+				<form action="<?=base_url();?>c_admin/save_produk" method="POST"	enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Nama produk</label>
 						<input type="text" name="nama_produk" id="nama_produk" class="form-control" placeholder="Input nama produk" required>
@@ -129,7 +129,6 @@
           <label>Kategori</label>
 									<select name="kategori" class="form-control">
 										<option value="0">--pilih--</option>
-										<option value="pakaian">Pakaian</option>
                     <option value="makanan">Makanan</option>
                     <option value="minuman">Minuman</option>
 									</select>
