@@ -44,6 +44,7 @@
                   <thead>
                     <tr>
                       <th>No</th>
+                      <th>Kode produk</th>
                       <th>Nama produk</th>
                       <th>Harga produk</th>
                       <th>Kategori</th>
@@ -59,6 +60,7 @@
                       foreach ($produk as $key => $value) :?>
                   <tr>
                     <td><?=$no++;?></td>
+                    <td><?=$value['kode_produk'];?></td>
                     <td><?=$value['nama_produk'];?></td>
                     <td><?="Rp. ".number_format( $value['harga_produk']);?></td>
                     <td><?=$value['kategori'];?></td>
@@ -68,15 +70,14 @@
                     
                     <td>
                       <a href="<?php echo base_url(); ?>c_admin/edit_produk/<?=$value['id_produk']; ?>"
-											class="btn btn-info btn-xs"> <i class="fa fa-edit"></i> </a>
+											class="btn btn-info btn-xs"> <i class="fa fa-edit"></i> Edit </a>
+
                       <a href="<?php echo base_url(); ?>c_admin/delete_produk/<?= $value['id_produk']; ?>"
-											class="btn btn-danger btn-xs"> <i class="fa fa-trash"></i> </a>  
-                      
-                    </td>
+                      onclick="return confirm('Apakah Anda Ingin Menghapus Data <?=$value['nama_produk'];?>');" class="btn btn-danger btn-xs" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash"></i> Delate</a>  
                     
+                    </td>
                   </tr>
                   <?php endforeach;?>
-                  
                 </tfoot>
              
               </table>
@@ -108,7 +109,14 @@
 			<div class="modal-body">
 
 				<form action="<?=base_url();?>c_admin/save_produk" method="POST"	enctype="multipart/form-data">
-					<div class="form-group">
+
+        <div class="form-group">
+						<label for="exampleInputEmail1">Kode produk</label>
+						<input type readonly="text" name="kode_produk" id="kode_produk"  class="form-control" value="<?=$kode_otomatis;?>">
+
+					</div>
+      
+      		<div class="form-group">
 						<label for="exampleInputEmail1">Nama produk</label>
 						<input type="text" name="nama_produk" id="nama_produk" class="form-control" placeholder="Input nama produk" required>
 

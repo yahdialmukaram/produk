@@ -68,12 +68,7 @@ window.setTimeout(function(){
 }, 6000);
 
 </script>
-<!-- 
-<script>
-    $(document).ready(function(){
-        $('#mydata').DataTable();
-    });
-</script> -->
+
 
 </body>
 </html>

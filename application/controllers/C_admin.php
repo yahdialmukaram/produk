@@ -18,13 +18,7 @@ class C_admin extends CI_Controller {
         $this->load->view('admin/dashboard');
         $this->load->view('admin/footer');
     }
-    public function tb_produk()
-    {
-        $data['produk'] = $this->Model->tampil_produk();
-        $this->load->view('admin/header');
-        $this->load->view('admin/tb_produk',$data);
-        $this->load->view('admin/footer');
-    }
+   
  
       // tambah kan fungsi upload  untuk semua
       public function upload($name)
@@ -62,16 +56,26 @@ class C_admin extends CI_Controller {
           }
       }
 
-     public function save_produk()
-     {     
+      public function tb_produk()
+      {
+          $data['kode_otomatis'] = $this->Model->kode_otomatis();
+          $data['produk'] = $this->Model->tampil_produk();
+          $this->load->view('admin/header');
+          $this->load->view('admin/tb_produk',$data);
+          $this->load->view('admin/footer');
+        }
+        
+        public function save_produk()
+        {     
          $image = $this->upload('image');
            $kategori = $this->input->post('kategori');
            if ($kategori == '0'){
-               $this->session->set_flashdata('danger','kategori belum anda pilih !!');
+               $this->session->set_flashdata('error','Harap isi pilihan kategori !!');
                redirect('c_admin/tb_produk');
              }
          if ($image ['status']=='success') {
          $data = [
+                'kode_produk' => $this->input->post('kode_produk'),
                 'nama_produk' => $this->input->post('nama_produk'),
                 'harga_produk' => $this->input->post('harga_produk'),
                 'kategori' => $this->input->post('kategori'),

@@ -31,6 +31,11 @@
                   <div class="col-md-6">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Produk</label>
+                    <input type readonly="text" name="kode_produk" value="<?=$edit['kode_produk'];?>" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nama Produk</label>
                     <input type="text" name="nama_produk" value="<?=$edit['nama_produk'];?>" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                   </div>
 
@@ -41,7 +46,7 @@
 
                   <div class="form-group">
                     <label for="exampleInputEmail1">kategori Produk</label>
-                    <input type="text" name="kategori" value="<?=$edit['kategori'];?>" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type readonly="text" name="kategori" value="<?=$edit['kategori'];?>" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                   </div>
 
                   <div class="form-group">
